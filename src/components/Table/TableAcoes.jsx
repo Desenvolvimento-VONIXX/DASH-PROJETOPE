@@ -18,7 +18,8 @@ function TableAcoes({ color, estrategia }) {
           WHEN STATUS = 'ANDAMENTO' THEN 'EM ANDAMENTO'
           ELSE STATUS 
         END AS STATUS
-      FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}'
+      FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}
+      AND YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}'
     `;
     setConsulta(novaConsulta);
   }, [estrategia]);

@@ -32,6 +32,7 @@ function GraficoAcaoResponsavel() {
         RESPONSAVEL AS RESPONSAVEL,
         COUNT(*) AS QNT 
         FROM SANKHYA.AD_PROJETOPE 
+        WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
         GROUP BY RESPONSAVEL
         ORDER BY QNT DESC     
     `;

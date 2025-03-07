@@ -10,6 +10,7 @@ function TotAcoes() {
     useEffect(() => {
         const novaConsulta = `
         SELECT COUNT(*) AS TOTAL_ACAO FROM SANKHYA.AD_PROJETOPE
+        WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
         `
         setConsulta(novaConsulta)
     })

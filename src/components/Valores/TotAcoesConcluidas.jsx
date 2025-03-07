@@ -11,7 +11,7 @@ function TotAcoesConcluidas() {
         const novaConsulta = `
         SELECT 
         ROUND((CAST(COUNT(CASE WHEN STATUS = 'CONCLUIDO' THEN 1 END) AS FLOAT) / CAST(COUNT(*) AS FLOAT)) * 100, 2) AS PERCENTUAL_CONCLUIDO
-        FROM SANKHYA.AD_PROJETOPE;
+        FROM SANKHYA.AD_PROJETOPE WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO};
         `
         setConsulta(novaConsulta)
     })

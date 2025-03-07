@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@insulino/vite-plugin-2sankhyabi": "^1.0.6",
     "@tanstack/react-router": "^1.58.3",
     "chartjs-plugin-datalabels": "^2.2.0",
     "estoque": "file:",

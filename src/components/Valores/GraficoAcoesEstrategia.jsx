@@ -35,6 +35,7 @@ function GraficosAcoesEstrategia() {
         COUNT(*) AS QNT 
         FROM SANKHYA.AD_PROJETOPE 
         WHERE ESTRATEGIA IS NOT NULL
+        AND YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
         GROUP BY ESTRATEGIA        
         `;
     setConsulta(novaConsulta);

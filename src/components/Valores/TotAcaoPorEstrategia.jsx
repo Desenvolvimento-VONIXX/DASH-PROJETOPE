@@ -9,7 +9,7 @@ function TotAcaoPorEstrategia({estrategia}) {
 
     useEffect(() => {
         const novaConsulta = `
-        SELECT COUNT(*) AS TOTAL_ACAO FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}'
+        SELECT COUNT(*) AS TOTAL_ACAO FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia} AND YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}'
         `
         setConsulta(novaConsulta)
     })

@@ -41,6 +41,7 @@ function GraficoStatusResponsavel() {
         ) AS PERCENTUAL_CONCLUSAO
       FROM 
         SANKHYA.AD_PROJETOPE 
+        WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
       GROUP BY 
         RESPONSAVEL
       ORDER BY 

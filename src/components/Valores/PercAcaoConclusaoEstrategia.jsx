@@ -11,10 +11,11 @@ function PercAcaoConclusaoEstrategia({estrategia}) {
         const novaConsulta = `
         SELECT TOP 1
         CAST(
-        (SELECT COUNT(*) FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}' AND STATUS = 'CONCLUIDO') * 100.0 / 
+        ( COUNT(*) FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}' AND STATUS = 'CONCLUIDO') * 100.0 / 
         (SELECT COUNT(*) FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}')
         AS DECIMAL(10, 2)) AS PERCENTUAL_CONCLUSAO
         FROM SANKHYA.AD_PROJETOPE
+        WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
         `
         setConsulta(novaConsulta)
     })

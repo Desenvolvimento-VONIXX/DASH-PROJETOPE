@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import { plugin } from "web-dash-builder";
+import { convertToSankhyaBI } from "@insulino/vite-plugin-2sankhyabi";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), plugin()],
+  plugins: [react(), { ...convertToSankhyaBI(), apply: "build" }],
 });

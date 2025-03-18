@@ -81,6 +81,21 @@ function GraficosAcoesEstrategia() {
 
   const labels = result.map((item) => item.estrategia);
   const valores = result.map((item) => item.qnt);
+  const colorsGraficos = labels.map((labels) => {
+    switch (labels.toUpperCase().trim()) {
+      case "SO":
+        return "#78CFA9";
+      case "WO":
+        return "#78CFC6";
+      case "ST":
+        return "#FADC6A";
+      case "WT":
+        return "#FDB3A2";
+      default:
+        return "rgba(75, 192, 192, 0.6)";
+    }
+    
+  })
 
   const chartData = {
     labels: labels,
@@ -88,8 +103,8 @@ function GraficosAcoesEstrategia() {
       {
         label: "Quantidade Ações",
         data: valores,
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
-        borderColor: "rgba(75, 192, 192, 1)",
+        backgroundColor: colorsGraficos,
+        borderColor: colorsGraficos,
         borderWidth: 1,
       },
     ],

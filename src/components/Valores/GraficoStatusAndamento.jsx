@@ -15,6 +15,7 @@ function GraficoStatusAndamento() {
            SELECT
             CASE
             WHEN STATUS = 'ANDAMENTO' THEN 'EM ANDAMENTO'
+            WHEN STATUS = 'ESPERA' THEN 'NÃO INICIADO' 
             ELSE STATUS
             END STATUS,
             COUNT(*) AS QNT

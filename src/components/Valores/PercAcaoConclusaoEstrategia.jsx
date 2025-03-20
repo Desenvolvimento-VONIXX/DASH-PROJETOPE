@@ -9,13 +9,18 @@ function PercAcaoConclusaoEstrategia({estrategia}) {
 
     useEffect(() => {
         const novaConsulta = `
-        SELECT TOP 1
-        CAST(
-        ( COUNT(*) FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}' AND STATUS = 'CONCLUIDO') * 100.0 / 
-        (SELECT COUNT(*) FROM SANKHYA.AD_PROJETOPE WHERE ESTRATEGIA = '${estrategia}')
-        AS DECIMAL(10, 2)) AS PERCENTUAL_CONCLUSAO
-        FROM SANKHYA.AD_PROJETOPE
-        WHERE YEAR(DT_INICIO_PANEJAMENTO)= ${P_ANO}
+        SELECT 
+          CAST(
+              (SELECT COUNT(*) 
+                FROM SANKHYA.AD_PROJETOPE  
+                WHERE ESTRATEGIA = '${estrategia}'  
+                AND STATUS = 'CONCLUIDO'  
+                AND YEAR(DT_INICIO_PANEJAMENTO) = ${P_ANO}) * 100.0 / 
+                (SELECT COUNT(*)  
+                FROM SANKHYA.AD_PROJETOPE  
+                WHERE ESTRATEGIA = '${estrategia}'  
+                AND YEAR(DT_INICIO_PANEJAMENTO) = ${P_ANO}) 
+          AS DECIMAL(10, 2)) AS PERCENTUAL_CONCLUSAO 
         `
         setConsulta(novaConsulta)
     })

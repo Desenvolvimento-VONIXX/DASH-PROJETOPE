@@ -29,6 +29,7 @@ function GraficoStatusResponsavel() {
   const [result, setResult] = useState([]);
   const [consulta, setConsulta] = useState("");
 
+
   useEffect(() => {
     const novaConsulta = `
       SELECT 
@@ -91,6 +92,7 @@ function GraficoStatusResponsavel() {
     );
   }
 
+
   const labels = result.map((item) => item.responsavel);
   const valores = result.map((item) => item.qnt);
 
@@ -148,24 +150,31 @@ function GraficoStatusResponsavel() {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "400px", 
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop:"2%"
-      }}
-    >
-      <Bar
-        data={chartData}
-        options={{
-          ...chartOptions,
-          responsive: true,
-          maintainAspectRatio: false,
-        }}
-      />
+    <div style={{
+      width:"100%",
+      height:"400px",
+      overflowX:"auto",
+      paddingBottom:"10px"
+    }}>
+        <div
+          style={{
+            width: "100%",
+            height: "800px", 
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop:"2%"
+          }}
+        >
+          <Bar
+            data={chartData}
+            options={{
+              ...chartOptions,
+              responsive: true,
+              maintainAspectRatio: false,
+            }}
+          />
+        </div>
     </div>
   );
 }

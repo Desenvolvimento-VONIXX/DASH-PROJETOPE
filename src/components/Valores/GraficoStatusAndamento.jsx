@@ -116,7 +116,7 @@ function GraficoStatusAndamento() {
       datalabels: {
         color: "#000",
         align: "end",
-        anchor: "end",
+        anchor: "start",
         formatter: (value, context) => {
             const label = context.chart.data.labels[context.dataIndex];
             return `${label}: ${value}`;

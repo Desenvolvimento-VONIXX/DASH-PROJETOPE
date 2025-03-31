@@ -120,24 +120,31 @@ function GraficoAcaoResponsavel() {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "400px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop:"2%"
-      }}
-    >
-      <Bar
-        data={chartData}
-        options={{
-          ...chartOptions,
-          responsive: true,
-          maintainAspectRatio: false,
-        }} 
-      />
+    <div style={{
+      width:"100%",
+      overflowX:"auto",
+      paddingBottom:"10px",
+      height:"450px"
+    }}>
+      <div
+        style={{
+          width: "100%",
+          height: "800px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop:"2%"
+        }}
+      >
+        <Bar
+          data={chartData}
+          options={{
+            ...chartOptions,
+            responsive: true,
+            maintainAspectRatio: false,
+          }} 
+        />
+      </div>
     </div>
   );
 }
